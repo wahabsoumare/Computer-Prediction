@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <style>
+            body{
+                background-image: url('static/img.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: fixed;
+            }
+
+            .form-group{
+                max-width: 50%;
+            }
+            form{
+                background-color: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-radius: 15px;
+                padding: 30px;
+                min-height: 400px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            h1 {
+                color: #fff;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            }
+            .my-div{
+                width: 42%;
+                margin-top: 5% !important;
+            }
+        </style>
+        <title>Computer Price Prediction</title>
+    </head>
+    <body>
+        <div class="container mt-5">
+            <h1 class="text-center mt-3"><a href="/" class="text-decoration-none text-white">Prediction of Computer Price</a></h1>
+            <form  class="mt-4 container form-group" method="POST" action="/predict">
+                <div class="form-content">
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-around">
+                            <div>
+                                <label for="inches" class="form-label fw-bold fw-bold">Inches</label>
+                                <input type="number" min="13" step="0.1" class="form-control form-control-lg w-100" id="inches" name="inches" required>
+                            </div>
+                            <div>
+                                <label for="inches" class="form-label fw-bold fw-bold">Ram (Go)</label>
+                                <input type="number" min="4" step="2" class="form-control form-control-lg w-100" id="ram" name="ram" required>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-around">
+                            <div>
+                                <label for="weight" class="form-label fw-bold">Weight</label>
+                                <input type="number" min="1" step="0.1" class="form-control form-control-lg w-100" id="weight" name="weight" required>
+                            </div>
+                            <div>
+                                <label for="width" class="form-label fw-bold">Screen Width</label>
+                                <input type="number" min="0" class="form-control form-control-lg w-100" id="width" name="width" required>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-around">
+                            <div>
+                                <label for="height" class="form-label fw-bold">Screen Height</label>
+                                <input type="number" min="0" class="form-control form-control-lg w-100" id="height" name="height" required>
+                            </div>
+                            <div>
+                                <label for="frequency" class="form-label fw-bold">Frequency (GHz)</label>
+                                <input type="number" min="1" step="0.1" class="form-control form-control-lg w-100" id="frequency" name="frequency" required>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-around">
+                            <div>
+                                <label for="size" class="form-label fw-bold">Memory Size (Go)</label>
+                                <input type="number" min="1" step="0.1" class="form-control form-control-lg w-100" id="size" name="size" required>
+                            </div>
+                            <div class="mt-4 my-div">
+                                <select class="form-select form-select-lg w-100" aria-label="Default select example" id="company" name="company">
+                                    <option selected>Company</option>
+                                    <option value="0">Acer</option>
+                                    <option value="1">Apple</option>
+                                    <option value="2">Asus</option>
+                                    <option value="3">Chuwi</option>
+                                    <option value="4">Dell</option>
+                                    <option value="5">Fujitsu</option>
+                                    <option value="6">Google</option>
+                                    <option value="7">HP</option>
+                                    <option value="8">Huawei</option>
+                                    <option value="9">LG</option>
+                                    <option value="10">Lenovo</option>
+                                    <option value="11">MSI</option>
+                                    <option value="12">Mediacom</option>
+                                    <option value="13">Microsoft</option>
+                                    <option value="14">Razer</option>
+                                    <option value="15">Samsung</option>
+                                    <option value="16">Toshiba</option>
+                                    <option value="17">Vero</option>
+                                    <option value="18">Xiaomi</option>
+                                </select>
+                                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" id="predict" class="btn btn-primary d-block mx-auto">Predict</button>
+            </form>
+            {% if prediction %}
+                <div class="result text-center">
+                    <h4 class="alert alert-success mt-2 w-50 mx-auto" role="alert">Predicted Price: {{ prediction }}$</h4>
+                </div>
+            {% endif %}
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+</html>
