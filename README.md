@@ -30,6 +30,7 @@ Avant de commencer, assurez-vous d'avoir toutes les dépendances requises dans l
 
 ```bash
 pip install -r requirements.txt
+```
 
 Lancer l'application :
 
@@ -38,6 +39,7 @@ Lancer l'application :
     - Dans votre terminal, exécutez le fichier main.py pour démarrer l'application Flask :
     ```python
     python main.py
+    ```
     - Accédez à l'application via votre navigateur à l'adresse suivante : http://127.0.0.1:8000.
 
 Vous pourrez alors saisir les caractéristiques de l'ordinateur dans le formulaire HTML et obtenir une prédiction du prix.
