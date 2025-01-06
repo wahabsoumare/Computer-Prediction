@@ -40,7 +40,7 @@ def predict() :
             scaled_data = scaler.transform(data_df)
             prediction = model.predict(scaled_data)
 
-            return render_template('index.html', prediction = f'{prediction[0]:.2f}')
+            return render_template('index.html', prediction = f'{prediction[0]:.2f}') 
 
         except Exception as e :
             return render_template('index.html', prediction = f"Error : {str(e)}")
